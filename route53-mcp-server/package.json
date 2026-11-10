@@ -1,0 +1,22 @@
+{
+  "name": "route53-mcp-server",
+  "version": "1.0.0",
+  "description": "Read-only MCP server for AWS Route53 (hosted zones and resource record sets)",
+  "type": "module",
+  "bin": {
+    "route53-mcp-server": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@aws-sdk/client-route-53": "^3.700.0",
+    "@modelcontextprotocol/sdk": "^1.30.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.5.0"
+  }
+}

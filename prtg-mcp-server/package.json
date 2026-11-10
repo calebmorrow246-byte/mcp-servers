@@ -1,0 +1,22 @@
+{
+  "name": "prtg-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for PRTG Network Monitor REST API",
+  "type": "module",
+  "bin": {
+    "prtg-mcp-server": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.1",
+    "axios": "^1.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.5.0"
+  }
+}

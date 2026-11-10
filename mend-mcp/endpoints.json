@@ -1,0 +1,763 @@
+[
+ {
+  "path": "/accounts/{accountUuid}/automation/workflows",
+  "summary": "Get Account-Level Workflows List",
+  "tag": "Workflows",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/accounts/{accountUuid}/automation/workflows/{workflowUuid}",
+  "summary": "Get Account-Level Workflow",
+  "tag": "Workflows",
+  "query": []
+ },
+ {
+  "path": "/ai/implementationweakness",
+  "summary": "Get implementation weaknesses",
+  "tag": "AI",
+  "query": [
+   "weaknessID"
+  ]
+ },
+ {
+  "path": "/applications/{applicationUuid}/ai/findings/implementation",
+  "summary": "Get application implementation findings",
+  "tag": "Findings - Project",
+  "query": [
+   "cursor",
+   "limit",
+   "grouped"
+  ]
+ },
+ {
+  "path": "/applications/{applicationUuid}/ai/findings/models",
+  "summary": "Get application AI models",
+  "tag": "Findings - Project",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/applications/{applicationUuid}/ai/vulnerabilities",
+  "summary": "Get application AI vulnerabilities",
+  "tag": "Findings - Project",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/applications/{applicationUuid}/ai/vulnerabilities/{vulnerabilityId}",
+  "summary": "Get application AI vulnerability details",
+  "tag": "Findings - Project",
+  "query": []
+ },
+ {
+  "path": "/applications/{applicationUuid}/dependencies/sourceFiles/inventory",
+  "summary": "Get source files inventory at application level",
+  "tag": "Dependencies Source Files",
+  "query": [
+   "limit",
+   "cursor"
+  ]
+ },
+ {
+  "path": "/applications/{applicationUuid}/dependencies/sourceFiles/searchForMatch",
+  "summary": "Search for library matches for source files at application level",
+  "tag": "Dependencies Source Files",
+  "query": []
+ },
+ {
+  "path": "/orgs/{orgUuid}/activity-logs",
+  "summary": "Get Organization Activity Logs",
+  "tag": "Administration - Activity Log",
+  "query": [
+   "cursor",
+   "limit",
+   "startDate",
+   "days",
+   "engineType"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/activity-logs/options",
+  "summary": "Get Organization Activity Log Options",
+  "tag": "Administration - Activity Log",
+  "query": [
+   "fields"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/applications",
+  "summary": "Get Organization Applications",
+  "tag": "Applications",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/applications/summaries/totals",
+  "summary": "Get Application totals",
+  "tag": "Applications",
+  "query": [
+   "fromDate",
+   "toDate"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/applications/{applicationUuid}/approvalRequests",
+  "summary": "Get application suppression requests",
+  "tag": "Suppression Requests",
+  "query": []
+ },
+ {
+  "path": "/orgs/{orgUuid}/applications/{applicationUuid}/labels",
+  "summary": "Get Application Labels",
+  "tag": "Applications",
+  "query": []
+ },
+ {
+  "path": "/orgs/{orgUuid}/applications/{applicationUuid}/scans",
+  "summary": "Get Application Scans",
+  "tag": "Applications",
+  "query": [
+   "cursor",
+   "limit",
+   "checkUfDbStatus"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/automation/workflows",
+  "summary": "Get Organization Workflows",
+  "tag": "Workflows",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/automation/workflows/{workflowUuid}",
+  "summary": "Get Workflow",
+  "tag": "Workflows",
+  "query": []
+ },
+ {
+  "path": "/orgs/{orgUuid}/dependencies/events/zeroday",
+  "summary": "Get all Zero-Day Events",
+  "tag": "Zero-Day Events",
+  "query": [
+   "limit",
+   "cursor",
+   "fromDate",
+   "toDate"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/dependencies/events/zeroday/{eventUuid}/findings",
+  "summary": "Get Affected Libraries for a Zero-Day Event",
+  "tag": "Zero-Day Events",
+  "query": [
+   "limit",
+   "cursor",
+   "fromDate",
+   "toDate"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/groups",
+  "summary": "Get All Organization Groups",
+  "tag": "Administration - Groups",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/groups/roleDefinitions",
+  "summary": "Get All Organization Groups with Role Definitions",
+  "tag": "Administration - Groups",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/groups/{groupUuid}",
+  "summary": "Get Group",
+  "tag": "Administration - Groups",
+  "query": []
+ },
+ {
+  "path": "/orgs/{orgUuid}/groups/{groupUuid}/roles",
+  "summary": "Get Group Roles",
+  "tag": "Administration - Groups",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/groups/{groupUuid}/users",
+  "summary": "Get Group Users",
+  "tag": "Administration - Groups",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/integrations",
+  "summary": "Get All Integrations",
+  "tag": "Integrations",
+  "query": []
+ },
+ {
+  "path": "/orgs/{orgUuid}/labels",
+  "summary": "Get All Organization Labels",
+  "tag": "Administration - Labels",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/projects",
+  "summary": "Get Organization Projects",
+  "tag": "Projects",
+  "query": [
+   "cursor",
+   "limit",
+   "populateApplications",
+   "excludeInactiveProjects"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/projects/summaries/total/date",
+  "summary": "Get Project totals grouped by date",
+  "tag": "Projects",
+  "query": [
+   "fromDate",
+   "toDate"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/projects/summaries/totals",
+  "summary": "Get Project totals",
+  "tag": "Projects",
+  "query": [
+   "fromDate",
+   "toDate"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/projects/{projectUuid}/approvalRequests",
+  "summary": "Get project suppression requests",
+  "tag": "Suppression Requests",
+  "query": []
+ },
+ {
+  "path": "/orgs/{orgUuid}/projects/{projectUuid}/labels",
+  "summary": "Get Project Labels",
+  "tag": "Projects",
+  "query": []
+ },
+ {
+  "path": "/orgs/{orgUuid}/projects/{projectUuid}/scans",
+  "summary": "Get Project Scans",
+  "tag": "Scans",
+  "query": [
+   "cursor",
+   "limit",
+   "checkUfDbStatus"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/projects/{projectUuid}/scans/{scanUuid}",
+  "summary": "Get Scan",
+  "tag": "Scans",
+  "query": [
+   "checkUfDbStatus"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/projects/{projectUuid}/scans/{scanUuid}/summary",
+  "summary": "Get Scan Summary",
+  "tag": "Scans",
+  "query": [
+   "checkUfDbStatus"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/projects/{projectUuid}/scans/{scanUuid}/tags",
+  "summary": "Get Scan Tags",
+  "tag": "Scans",
+  "query": []
+ },
+ {
+  "path": "/orgs/{orgUuid}/projects/{projectUuid}/violations",
+  "summary": "Get Project Violating Findings",
+  "tag": "Projects",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/reports",
+  "summary": "Get Reports",
+  "tag": "Reports",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/reports/download/{reportUuid}",
+  "summary": "Download Report",
+  "tag": "Reports",
+  "query": []
+ },
+ {
+  "path": "/orgs/{orgUuid}/reports/{reportUuid}",
+  "summary": "Get Report Status",
+  "tag": "Reports",
+  "query": []
+ },
+ {
+  "path": "/orgs/{orgUuid}/scans/compare",
+  "summary": "Get Scans Comparison",
+  "tag": "Scans",
+  "query": [
+   "sourceScanUuid",
+   "targetScanUuid",
+   "type"
+  ]
+ },
+ {
+  "path": "/orgs/{orgUuid}/users",
+  "summary": "Get Organization Users",
+  "tag": "Administration - Users",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/ai/findings/implementation",
+  "summary": "Get project implementation findings",
+  "tag": "Findings - Project",
+  "query": [
+   "cursor",
+   "limit",
+   "grouped"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/ai/findings/implementation/snippet/{snippetUuid}",
+  "summary": "Get implementation finding snippet",
+  "tag": "Findings - Project",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/ai/findings/models",
+  "summary": "Get project AI models",
+  "tag": "Findings - Project",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/ai/findings/technologies",
+  "summary": "Get project AI technologies",
+  "tag": "Findings - Project",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/ai/vulnerabilities",
+  "summary": "Get project AI vulnerabilities",
+  "tag": "Findings - Project",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/ai/vulnerabilities/{vulnerabilityId}",
+  "summary": "Get AI vulnerability details",
+  "tag": "Findings - Project",
+  "query": []
+ },
+ {
+  "path": "/projects/{projectUuid}/code/findings",
+  "summary": "Get a list of project findings (Code - SAST)",
+  "tag": "Findings - Project",
+  "query": [
+   "limit",
+   "cursor"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/code/findings/{findingUuid}",
+  "summary": "Get a project finding (Code - SAST)",
+  "tag": "Findings - Project",
+  "query": []
+ },
+ {
+  "path": "/projects/{projectUuid}/dependencies/effective",
+  "summary": "Get project vulnerabilities traces (Dependencies - SCA)",
+  "tag": "Projects",
+  "query": [
+   "limit",
+   "cursor"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/dependencies/findings/security",
+  "summary": "Get project security findings (Dependencies - SCA)",
+  "tag": "Findings - Project",
+  "query": [
+   "limit",
+   "cursor",
+   "zeroDayIdentifier"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/dependencies/findings/security/groupBy/library",
+  "summary": "Get libraries security findings",
+  "tag": "Findings - Project",
+  "query": [
+   "limit",
+   "cursor",
+   "zeroDayIdentifier"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/dependencies/findings/security/groupBy/rootLibrary",
+  "summary": "Get root libraries security findings (Dependencies - SCA)",
+  "tag": "Findings - Project",
+  "query": [
+   "limit",
+   "cursor",
+   "zeroDayIdentifier"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/dependencies/libraries",
+  "summary": "Get project libraries (Dependencies - SCA)",
+  "tag": "Findings - Project",
+  "query": [
+   "limit",
+   "cursor"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/dependencies/libraries/inHouse",
+  "summary": "Get in-house libraries (Dependencies - SCA)",
+  "tag": "Findings - Project",
+  "query": [
+   "limit",
+   "cursor"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/dependencies/libraries/licenses",
+  "summary": "Get project due diligence information (Dependencies - SCA)",
+  "tag": "Findings - Project",
+  "query": [
+   "limit",
+   "cursor"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/dependencies/sourceFiles/inventory",
+  "summary": "Get source files inventory at project level",
+  "tag": "Dependencies Source Files",
+  "query": [
+   "limit",
+   "cursor"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/dependencies/sourceFiles/searchForMatch",
+  "summary": "Search for library matches for source files at project level",
+  "tag": "Dependencies Source Files",
+  "query": []
+ },
+ {
+  "path": "/projects/{projectUuid}/scans/{scanUuid}/code/findings",
+  "summary": "Get a list of project scan findings (Code - SAST)",
+  "tag": "Findings - Scan",
+  "query": [
+   "limit",
+   "cursor"
+  ]
+ },
+ {
+  "path": "/projects/{projectUuid}/scans/{scanUuid}/code/findings/{findingUuid}",
+  "summary": "Get a project scan finding (Code - SAST)",
+  "tag": "Findings - Scan",
+  "query": []
+ },
+ {
+  "path": "/projects/{projectUuid}/scans/{scanUuid}/dependencies/SBOM/logs",
+  "summary": "Get SBOM import logs",
+  "tag": "Scans",
+  "query": []
+ },
+ {
+  "path": "/projects/{projectuuid}/images/findings/secrets",
+  "summary": "List latest image scan secrets findings",
+  "tag": "Findings - Project",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/projects/{projectuuid}/images/findings/security",
+  "summary": "List latest image scan security findings",
+  "tag": "Findings - Project",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/projects/{projectuuid}/images/packages",
+  "summary": "List latest image scan packages",
+  "tag": "Findings - Project",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/projects/{projectuuid}/scans/{scanuuid}/images/findings/secrets",
+  "summary": "List image scan secrets findings",
+  "tag": "Findings - Scan",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/projects/{projectuuid}/scans/{scanuuid}/images/findings/security",
+  "summary": "List image scan security findings",
+  "tag": "Findings - Scan",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/projects/{projectuuid}/scans/{scanuuid}/images/packages",
+  "summary": "List image scan packages",
+  "tag": "Findings - Scan",
+  "query": [
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/targets",
+  "summary": "List red-teaming targets in a project",
+  "tag": "Red Team - Targets",
+  "query": [
+   "pretty",
+   "cursor",
+   "limit",
+   "providerType"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/targets/{targetId}",
+  "summary": "Get a red-teaming target by id",
+  "tag": "Red Team - Targets",
+  "query": [
+   "pretty"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/targets/{targetId}/campaigns",
+  "summary": "List scan campaigns for a target",
+  "tag": "Red Team - Campaigns",
+  "query": [
+   "pretty",
+   "cursor",
+   "limit",
+   "lastN"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/targets/{targetId}/campaigns/{campaignId}",
+  "summary": "Get a scan campaign by id",
+  "tag": "Red Team - Campaigns",
+  "query": [
+   "pretty"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/targets/{targetId}/campaigns/{campaignId}/configurations",
+  "summary": "Get the configuration used for a campaign (secrets masked)",
+  "tag": "Red Team - Configurations",
+  "query": [
+   "pretty"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/targets/{targetId}/campaigns/{campaignId}/findings",
+  "summary": "List findings for a specific campaign",
+  "tag": "Red Team - Findings",
+  "query": [
+   "pretty",
+   "cursor",
+   "limit",
+   "type",
+   "lastN"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/targets/{targetId}/campaigns/{campaignId}/findings/{resultId}",
+  "summary": "Get a finding that belongs to a specific campaign",
+  "tag": "Red Team - Findings",
+  "query": [
+   "pretty"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/targets/{targetId}/configurations",
+  "summary": "Get the target's current scan configuration (secrets masked)",
+  "tag": "Red Team - Configurations",
+  "query": [
+   "pretty"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/targets/{targetId}/findings",
+  "summary": "List findings across campaigns for a target",
+  "tag": "Red Team - Findings",
+  "query": [
+   "pretty",
+   "cursor",
+   "limit",
+   "type",
+   "campaigns",
+   "lastN",
+   "lastNCampaigns",
+   "allCampaigns"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/targets/{targetId}/findings/{resultId}",
+  "summary": "Get a finding by id",
+  "tag": "Red Team - Findings",
+  "query": [
+   "pretty"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/targets/{targetId}/findings/{resultId}/suppression",
+  "summary": "Get the suppression sub-resource for a finding",
+  "tag": "Red Team - Findings",
+  "query": [
+   "pretty"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/targets/{targetId}/jobs/{jobId}",
+  "summary": "Get scan job status, progress, and result statistics",
+  "tag": "Red Team - Jobs",
+  "query": [
+   "pretty"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/targets/{targetId}/jobs/{jobId}/report",
+  "summary": "Download a scan job report as PDF or CSV",
+  "tag": "Red Team - Jobs",
+  "query": [
+   "pretty",
+   "format",
+   "mode"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/targets/{targetId}/remediations",
+  "summary": "List remediations aggregated across campaigns for a target",
+  "tag": "Red Team - Remediations",
+  "query": [
+   "pretty",
+   "cursor",
+   "limit",
+   "campaigns",
+   "lastNCampaigns",
+   "severity",
+   "category",
+   "sort"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/targets/{targetId}/remediations/report",
+  "summary": "Download a remediations report as PDF or CSV",
+  "tag": "Red Team - Remediations",
+  "query": [
+   "pretty",
+   "format",
+   "campaigns",
+   "lastNCampaigns",
+   "severity",
+   "category",
+   "sort"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/projects/{projectUuid}/templates",
+  "summary": "List project-scoped scan templates",
+  "tag": "Red Team - Templates",
+  "query": [
+   "pretty",
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/applications/{applicationUuid}/templates",
+  "summary": "List application-scoped scan templates",
+  "tag": "Red Team - Templates",
+  "query": [
+   "pretty",
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/templates",
+  "summary": "List organization-scoped scan templates",
+  "tag": "Red Team - Templates",
+  "query": [
+   "pretty",
+   "cursor",
+   "limit"
+  ]
+ },
+ {
+  "path": "/redteaming/orgs/{orgUuid}/templates/{templateId}",
+  "summary": "Get an organization-scoped scan template",
+  "tag": "Red Team - Templates",
+  "query": [
+   "pretty"
+  ]
+ }
+]

@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "prtg-local": {
+      "type": "stdio",
+      "command": "pwsh.exe",
+      "args": ["-NonInteractive", "-NoProfile", "-File", "/path/to/mcp-servers/prtg-mcp-server/Start-PrtgMCP.ps1"]
+    },
+    "mend-hosted": {
+      "type": "http",
+      "url": "https://mcp-host.example.com/mcp/mend",
+      "headersHelper": "pwsh -NoProfile -NonInteractive -File /path/to/Get-McpHeaders.ps1"
+    }
+  }
+}

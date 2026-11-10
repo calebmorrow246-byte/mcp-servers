@@ -1,0 +1,4 @@
+# Authored by Caleb A. Morrow
+mcp[cli]>=2.2.0
+httpx>=0.28.0
+truststore>=0.10.0

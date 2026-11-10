@@ -1,0 +1,16 @@
+[project]
+name = "freshservice-mcp"
+version = "1.0.0"
+description = "An MCP server for Freshservice"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "build>=1.2.2.post1",
+    "httpx==0.28.1",
+    "mcp[cli]>=2.2.0",
+    "pydantic>=2.10.6",
+]
+
+[project.scripts]
+freshservice-mcp = "freshservice_mcp.server:main"
+

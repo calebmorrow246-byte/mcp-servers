@@ -1,0 +1,4 @@
+# Initial version by a colleague, built with the toolbox and reference material provided by Caleb A. Morrow, who reworked, extended, tested and deployed it
+mcp[cli]>=2.2.0
+httpx>=0.28.0
+truststore>=0.10.0

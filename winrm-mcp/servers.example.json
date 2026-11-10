@@ -1,0 +1,12 @@
+{
+  "servers": [
+    {
+      "name": "server01.example.com",
+      "note": "example entry"
+    },
+    {
+      "name": "server02.example.com",
+      "note": "example entry"
+    }
+  ]
+}

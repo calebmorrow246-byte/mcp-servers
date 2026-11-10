@@ -1,0 +1,497 @@
+{
+  "schemaVersion": "2.0",
+  "lastUpdated": "2026-10-22",
+  "description": "Generic subset of the known-events knowledge base: Windows event signatures with a reviewed fix, root cause and priority. The production KB held 105 entries; environment-specific ones are omitted.",
+  "entries": [
+    {
+      "source": ".NET Runtime",
+      "eventId": 1022,
+      "messagePattern": "profiling API attach infrastructure",
+      "priority": "L",
+      "suggestedFix": "Get-ChildItem Env:COR_*,Env:CORECLR_* -ErrorAction SilentlyContinue",
+      "rootCauseAnalysis": "Profiling API attach init fails; commonly from misconfigured APM agent or stale COR_PROFILER environment variables.",
+      "tags": [
+        "dotnet",
+        "apm",
+        "benign"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Microsoft-Windows-Security-Kerberos",
+      "eventId": 19,
+      "priority": "M",
+      "suggestedFix": "Report to AD team; DC certs must be reissued from Kerberos Authentication template (workstation cannot fix).",
+      "rootCauseAnalysis": "Domain Controller KDC certificate missing Kerberos Authentication EKU; resolution required on the DC, not the workstation.",
+      "tags": [
+        "kerberos",
+        "pki",
+        "ad"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Service Control Manager",
+      "eventId": 7000,
+      "messagePattern": "(?i)Dhcp service",
+      "priority": "M",
+      "suggestedFix": "sc.exe config Dhcp obj= 'NT AUTHORITY\\LocalService' password= ''; Restart-Service Dhcp -Force",
+      "rootCauseAnalysis": "DHCP Client service cannot log on as LocalService due to corrupted secret store; cascades to WLAN dependency.",
+      "tags": [
+        "dhcp",
+        "service",
+        "logon"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Service Control Manager",
+      "eventId": 7023,
+      "messagePattern": "system shutdown is in progress",
+      "priority": "L",
+      "suggestedFix": "No action needed",
+      "rootCauseAnalysis": "Service stopped during system shutdown; expected behavior reported as an error code.",
+      "tags": [
+        "service",
+        "shutdown",
+        "benign"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Service Control Manager",
+      "eventId": 7024,
+      "messagePattern": "system shutdown is in progress",
+      "priority": "L",
+      "suggestedFix": "No action needed",
+      "rootCauseAnalysis": "Service stopped during system shutdown with service-specific shutdown code; expected, benign.",
+      "tags": [
+        "service",
+        "shutdown",
+        "benign"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Service Control Manager",
+      "eventId": 7034,
+      "messagePattern": "(?i)Application Information",
+      "priority": "L",
+      "suggestedFix": "Restart-Service Appinfo",
+      "rootCauseAnalysis": "Application Information service (UAC) crashed once; isolated event tied to a specific elevation.",
+      "tags": [
+        "uac",
+        "service",
+        "appinfo"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Service Control Manager",
+      "eventId": 7038,
+      "messagePattern": "(?i)Dhcp",
+      "priority": "M",
+      "suggestedFix": "sc.exe config Dhcp obj= 'NT AUTHORITY\\LocalService' password= ''; Restart-Service Dhcp -Force",
+      "rootCauseAnalysis": "Paired with SCM 7000; DHCP service password sync failure with NT Authority\\LocalService account.",
+      "tags": [
+        "dhcp",
+        "service",
+        "logon"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Service Control Manager",
+      "eventId": 7043,
+      "messagePattern": "(?i)Defender Advanced Threat Protection|Defender for Endpoint",
+      "priority": "L",
+      "suggestedFix": "No action; extend preshutdown timeout only if shutdown is visibly delayed",
+      "rootCauseAnalysis": "Defender for Endpoint exceeded preshutdown control timeout; common, no functional impact.",
+      "tags": [
+        "defender",
+        "mde",
+        "shutdown",
+        "benign"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Microsoft-Windows-TPM-WMI",
+      "eventId": 1796,
+      "priority": "L",
+      "suggestedFix": "Confirm-SecureBootUEFI; defer to next cumulative update which retries SBAT",
+      "rootCauseAnalysis": "Secure Boot SBAT revocation list update failed (0x800700c1); known Microsoft issue, retries on subsequent boots.",
+      "tags": [
+        "secureboot",
+        "sbat",
+        "tpm",
+        "benign"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Application Error",
+      "eventId": 1000,
+      "messagePattern": "wmiprvse\\.exe",
+      "priority": "M",
+      "suggestedFix": "winmgmt /verifyrepository; Get-WmiObject -Namespace root\\cimv2 -List | Out-Null",
+      "rootCauseAnalysis": "WMI provider host crashing with stack buffer overrun (0xc0000409); likely misbehaving WMI provider DLL.",
+      "tags": [
+        "wmi",
+        "crash"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Microsoft-Windows-Perflib",
+      "eventId": 1023,
+      "messagePattern": "sysmain\\.dll",
+      "priority": "L",
+      "suggestedFix": "lodctr /R",
+      "rootCauseAnalysis": "PerfLib tries to load SysMain (Superfetch) counter DLL but service is disabled on SSD systems; benign.",
+      "tags": [
+        "perfcounter",
+        "sysmain",
+        "benign"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Volsnap",
+      "eventId": 36,
+      "priority": "M",
+      "suggestedFix": "vssadmin resize shadowstorage /for=C: /on=C: /maxsize=20GB",
+      "rootCauseAnalysis": "VSS shadow copies aborted because allocated storage cap reached; restore points may be missing.",
+      "tags": [
+        "vss",
+        "storage",
+        "backup"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Microsoft-Windows-User Profiles Service",
+      "eventId": 1512,
+      "priority": "L",
+      "suggestedFix": "Restart-Computer (releases stuck hive handles); investigate AV/agent if recurring",
+      "rootCauseAnalysis": "User registry hive cannot unload at logoff due to lingering handle (often AV or background service).",
+      "tags": [
+        "registry",
+        "profile",
+        "logoff",
+        "benign"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "NetBT",
+      "eventId": 4307,
+      "priority": "L",
+      "suggestedFix": "No action; usually transient. Optional: Disable-NetAdapterBinding -Name * -ComponentID ms_netbios",
+      "rootCauseAnalysis": "NetBIOS over TCP/IP init failed; usually adapter ordering during boot; transient.",
+      "tags": [
+        "netbios",
+        "network",
+        "benign"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Microsoft-Windows-Kernel-General",
+      "eventId": 5,
+      "messagePattern": "Registry hive.*was corrupted",
+      "priority": "M",
+      "suggestedFix": "sfc /scannow; chkdsk C: /scan",
+      "rootCauseAnalysis": "Registry hive corrupted and auto-recovered; could indicate disk or specific licensing-store issue.",
+      "tags": [
+        "registry",
+        "corruption"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Microsoft-Windows-Bits-Client",
+      "eventId": 16392,
+      "messagePattern": "0x8007045B",
+      "priority": "L",
+      "suggestedFix": "No action (shutdown race)",
+      "rootCauseAnalysis": "BITS service start attempt during shutdown (0x8007045B SHUTDOWN_IN_PROGRESS); benign race condition.",
+      "tags": [
+        "bits",
+        "shutdown",
+        "benign"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "EventLog",
+      "eventId": 6008,
+      "priority": "M",
+      "suggestedFix": "Get-WinEvent -FilterHashtable @{LogName='System';ID=41;StartTime=(Get-Date).AddDays(-30)} -MaxEvents 10",
+      "rootCauseAnalysis": "System logged an unexpected shutdown; investigate for power loss, BSOD, or hard reset around that timestamp.",
+      "tags": [
+        "shutdown",
+        "bsod",
+        "power"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "VSS",
+      "eventId": 12344,
+      "messagePattern": "Registry Writer",
+      "priority": "L",
+      "suggestedFix": "vssadmin list writers; retry the backup",
+      "rootCauseAnalysis": "VSS Registry Writer hit unloaded hive during freeze (0xc000014d); isolated snapshot failure.",
+      "tags": [
+        "vss",
+        "backup",
+        "benign"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Application Hang",
+      "eventId": 1002,
+      "priority": "L",
+      "suggestedFix": "Update the affected application to latest version",
+      "rootCauseAnalysis": "Application UI hung and was killed by Windows; isolated freeze, usually no recurring impact.",
+      "tags": [
+        "apphang",
+        "benign"
+      ],
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Microsoft-Windows-CertificateServicesClient-AutoEnrollment",
+      "eventId": 6,
+      "priority": "M",
+      "suggestedFix": "Get-ADUser <user> -Properties mail; populate mail attribute, OR have AD team modify cert template to not require email in Subject/SAN",
+      "rootCauseAnalysis": "Cert template requires email in Subject/SAN but the AD user object's mail attribute is empty (0x80094812).",
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "tags": [
+        "pki",
+        "autoenrollment",
+        "ad"
+      ],
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Microsoft-Windows-CertificateServicesClient-CertEnroll",
+      "eventId": 13,
+      "priority": "M",
+      "suggestedFix": "Same as AutoEnrollment 6: populate AD user mail attribute or relax cert template email requirement",
+      "rootCauseAnalysis": "Paired with AutoEnrollment 6; CertEnroll cannot build cert subject because AD user lacks mail attribute (0x80094812).",
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "tags": [
+        "pki",
+        "certenroll",
+        "ad"
+      ],
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Microsoft-Windows-TPM-WMI",
+      "eventId": 1801,
+      "priority": "L",
+      "suggestedFix": "Confirm-SecureBootUEFI; follow https://go.microsoft.com/fwlink/?linkid=2301018 to apply Secure Boot DBX/KEK update at next maintenance window",
+      "rootCauseAnalysis": "KB5025885 Secure Boot DBX/KEK rollout pending firmware apply; advisory until Microsoft enforces, no impact.",
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "tags": [
+        "secureboot",
+        "tpm",
+        "advisory",
+        "benign"
+      ],
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Microsoft-Windows-COMRuntime",
+      "eventId": 18221,
+      "priority": "L",
+      "suggestedFix": "No action needed (Microsoft known cosmetic issue with PLA/logman.exe)",
+      "rootCauseAnalysis": "Performance Log and Alerts (logman.exe) running as SYSTEM denied DCOM access to RPCSS; documented MS cosmetic issue.",
+      "addedOn": "2026-05-11",
+      "addedBy": "seed",
+      "tags": [
+        "dcom",
+        "perflib",
+        "benign"
+      ],
+      "scope": "both",
+      "reviewed": true
+    },
+    {
+      "source": "Microsoft-Windows-DistributedCOM",
+      "eventId": 10016,
+      "priority": "L",
+      "suggestedFix": "No action unless an application actually breaks; if it does, grant the named user the missing activation permission in Component Services for that AppID only.",
+      "rootCauseAnalysis": "A process asked for COM activation it has no permission for; Microsoft documents this as expected noise on most servers.",
+      "tags": [
+        "windows",
+        "dcom",
+        "benign"
+      ],
+      "scope": "both",
+      "reviewed": true,
+      "addedOn": "2026-10-21",
+      "addedBy": "seed",
+      "exampleMessage": "The application-specific permission settings do not grant Remote Launch permission for the COM Server application with CLSID {D99E6E74-FC88-11D0-B498-00A0C90312F3} and APPID {D99E6E74-FC88-11D0-B498-00A0C90312F3} to the user CONTOSO\\svc"
+    },
+    {
+      "source": "Microsoft-Windows-DistributedCOM",
+      "eventId": 10014,
+      "priority": "L",
+      "suggestedFix": "No action unless something needs remote COM+ activation; only then install the COM+ Network Access feature.",
+      "rootCauseAnalysis": "A remote COM+ activation request was refused because the COM+ Network Access feature is not installed; harmless unless something needs remote COM+.",
+      "tags": [
+        "windows",
+        "dcom",
+        "complus",
+        "benign"
+      ],
+      "scope": "server",
+      "reviewed": true,
+      "addedOn": "2026-10-21",
+      "addedBy": "seed",
+      "exampleMessage": "The activation for CLSID {182C40F0-32E4-11D0-818B-00A0C9231C29} failed because remote activations for COM+ are disabled. To enable this functionality use Server Manager to install the COM+ Network Access feature in the Application Server role.",
+      "messagePattern": "remote activations for COM\\+ are disabled"
+    },
+    {
+      "source": "Microsoft-Windows-PerfNet",
+      "eventId": 2004,
+      "priority": "L",
+      "suggestedFix": "No action for a single occurrence; if it recurs, rebuild counters from an elevated prompt: lodctr /R (after backing up with lodctr /S:backup.ini).",
+      "rootCauseAnalysis": "The Server service performance counter provider failed to open, usually transient at startup or from damaged counter registration.",
+      "tags": [
+        "windows",
+        "perfcounter",
+        "benign"
+      ],
+      "scope": "both",
+      "reviewed": true,
+      "addedOn": "2026-10-21",
+      "addedBy": "seed",
+      "exampleMessage": "Unable to open the Server service performance object. The first four bytes (DWORD) of the Data section contains the status code."
+    },
+    {
+      "source": "Service Control Manager",
+      "eventId": 7032,
+      "priority": "M",
+      "suggestedFix": "Check the named service: Get-Service <name>; review its recovery options and the Application log around the crash; restart it if it is needed.",
+      "rootCauseAnalysis": "A service crashed and the Service Control Manager's automatic recovery action also failed, so the service may be stopped.",
+      "tags": [
+        "windows",
+        "service",
+        "recovery"
+      ],
+      "scope": "both",
+      "reviewed": true,
+      "addedOn": "2026-10-21",
+      "addedBy": "seed",
+      "exampleMessage": "The Service Control Manager tried to take a corrective action (Restart the service) after the unexpected termination of the Microsoft Defender Antivirus Network Inspection Service service, but this action failed with the following error: An instance of the service is already running."
+    },
+    {
+      "source": "Microsoft-Windows-Perflib",
+      "eventId": 1023,
+      "priority": "L",
+      "suggestedFix": "No action unless the counters are needed; if they are, rebuild with lodctr /R (elevated, after backing up with lodctr /S).",
+      "rootCauseAnalysis": "Windows could not load an extensible performance-counter DLL; the counters for that provider are missing, with no effect on the service itself.",
+      "tags": [
+        "windows",
+        "perfcounter",
+        "benign"
+      ],
+      "scope": "both",
+      "reviewed": true,
+      "addedOn": "2026-10-21",
+      "addedBy": "seed",
+      "exampleMessage": "Windows cannot load the extensible counter DLL InterceptCountersManager. The first four bytes (DWORD) of the Data section contains the Windows error code.",
+      "observed": "2026-10-21 fleet mining (30d, 41 servers): 230 events on 8 server(s)",
+      "messagePattern": "cannot load the extensible counter DLL"
+    },
+    {
+      "source": "Microsoft-Windows-Defrag",
+      "eventId": 257,
+      "priority": "L",
+      "suggestedFix": "No action. Slab consolidation cannot run on small-slab virtual disks; other storage-optimization failures are NOT covered by this entry.",
+      "rootCauseAnalysis": "Scheduled storage optimization skipped slab consolidation/analysis because the disk's slabs are under 8 MB (typical of virtual or thin disks); harmless.",
+      "tags": [
+        "windows",
+        "defrag",
+        "azure",
+        "benign"
+      ],
+      "scope": "both",
+      "reviewed": true,
+      "addedOn": "2026-10-21",
+      "addedBy": "seed",
+      "exampleMessage": "The volume Windows (C:) was not optimized because an error was encountered: Neither Slab Consolidation nor Slab Analysis will run if slabs are less than 8 MB. (0x8900002D)",
+      "observed": "2026-10-21 fleet mining: 42 events on 10 servers, across C:, D:, System Reserved, Recovery and data volumes (not only temporary storage)",
+      "messagePattern": "Neither Slab Consolidation nor Slab Analysis will run if slabs are less than 8 MB"
+    }
+  ]
+}

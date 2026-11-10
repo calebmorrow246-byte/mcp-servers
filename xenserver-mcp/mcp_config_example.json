@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "xenserver": {
+      "command": "python",
+      "args": ["C:\\Programs\\xenserver-mcp\\server.py"],
+      "env": {
+        "XENSERVER_HOST": "your-xenserver-ip-or-hostname",
+        "XENSERVER_USERNAME": "root",
+        "XENSERVER_PASSWORD": "your-password",
+        "XENSERVER_VERIFY_SSL": "false",
+        "XENSERVER_TIMEOUT": "60"
+      }
+    }
+  }
+}
